@@ -2,7 +2,7 @@ import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.algs4.StdDraw;
 
 public class CollisionSystem {
-    private static final double HZ = 10; // number of redraw events per clock tick
+    private static final double HZ = 5; // number of redraw events per clock tick
 
     private MinPQ<Event> pq; // the priority queue
     private double t = 0.0; // simulation clock time
@@ -29,8 +29,8 @@ public class CollisionSystem {
             particles[i].draw();
         }
         StdDraw.show();
-        StdDraw.pause(3);
-        pq.insert(new Event(t + 1 / HZ, null, null));
+        StdDraw.pause(20);
+        pq.insert(new Event(t + 1.0 / HZ, null, null));
     }
 
     public void simulate() {

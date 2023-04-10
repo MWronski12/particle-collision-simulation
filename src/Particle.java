@@ -1,3 +1,4 @@
+import java.awt.Color;
 import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdRandom;
 
@@ -6,25 +7,28 @@ public class Particle {
     private double vx, vy; // velocity
     private final double radius; // radius
     private final double mass; // mass
+    private Color color; // color
     private int count; // number of collisions
 
     public Particle() {
         rx = StdRandom.uniformDouble();
         ry = StdRandom.uniformDouble();
-        vx = StdRandom.uniformDouble(-0.01, 0.01);
-        vy = StdRandom.uniformDouble(-0.01, 0.01);
+        vx = StdRandom.uniformDouble(-0.025, 0.025);
+        vy = StdRandom.uniformDouble(-0.025, 0.025);
         radius = 0.01;
         mass = 0.5;
+        color = Color.BLACK;
         this.count = 0;
     }
 
-    public Particle(double rx, double ry, double vx, double vy, double radius, double mass) {
+    public Particle(double rx, double ry, double vx, double vy, double radius, double mass, Color color) {
         this.rx = rx;
         this.ry = ry;
         this.vx = vx;
         this.vy = vy;
         this.radius = radius;
         this.mass = mass;
+        this.color = color;
         this.count = 0;
     }
 
@@ -38,6 +42,7 @@ public class Particle {
     }
 
     public void draw() {
+        StdDraw.setPenColor(color);
         StdDraw.filledCircle(rx, ry, radius);
     }
 
